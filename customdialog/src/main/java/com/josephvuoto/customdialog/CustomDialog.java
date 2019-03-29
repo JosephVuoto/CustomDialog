@@ -1,4 +1,4 @@
-package com.xieyangzhe.customdialog;
+package com.josephvuoto.customdialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
+
+import com.xieyangzhe.customdialog.R;
 
 import java.util.Objects;
 

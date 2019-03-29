@@ -1,4 +1,4 @@
-package com.xieyangzhe.customdialog.CustomListDialog;
+package com.josephvuoto.customdialog.CustomListDialog;
 
 import android.app.Dialog;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.xieyangzhe.customdialog.CustomListDialog;
+package com.josephvuoto.customdialog.CustomListDialog;
 
 public class ListItemModel {
     private int imgResourceId;

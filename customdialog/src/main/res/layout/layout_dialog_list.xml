@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:clickable="true"
-    android:background="@drawable/medal_dialog_bg"
+    android:background="@drawable/list_dialog_bg"
     android:orientation="vertical">
     <ListView
         android:id="@+id/dialog_listview"
