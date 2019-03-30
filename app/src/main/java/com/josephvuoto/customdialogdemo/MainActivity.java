@@ -50,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void withList(View view) {
         List<ListItemModel> listItemModels = new ArrayList<>();
-        listItemModels.add(new ListItemModel(R.mipmap.ic_launcher_round, "ITEM 1"));
-        listItemModels.add(new ListItemModel(R.mipmap.ic_launcher, "ITEM 2"));
+        listItemModels.add(new ListItemModel(R.drawable.ic_alarms, "Set Alarm"));
+        listItemModels.add(new ListItemModel(R.drawable.ic_insert_emoticon, "Insert Emoticon"));
+        listItemModels.add(new ListItemModel(R.drawable.ic_lock_open, "Open Lock"));
         new ListDialog.Builder(this)
                 .setDatas(listItemModels)
-                .setColorText(Color.BLUE)
+                .setColorText(getResources().getColor(R.color.colorAccent))
+                .setColorImageTint(getResources().getColor(R.color.colorAccent))
                 .setOnSelectListener((which, dialog) -> {
                     Toast.makeText(this, "CLICKED " + which, Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
