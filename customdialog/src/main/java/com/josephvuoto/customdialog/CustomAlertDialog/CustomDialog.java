@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.josephvuoto.customdialog.common.OnCancelClickListener;
@@ -34,7 +35,9 @@ public class CustomDialog extends Dialog {
         TextView textMessage = findViewById(R.id.content);
         TextView buttonOk = findViewById(R.id.submit);
         TextView buttonCancel = findViewById(R.id.cancel);
-        View divider = findViewById(R.id.divider);
+        LinearLayout buttonLayout = findViewById(R.id.action_layout);
+        View dividerAction = findViewById(R.id.divider_action);
+        View dividerText = findViewById(R.id.divider_text);
 
         if (TextUtils.isEmpty(builder.title)) {
             textTitle.setVisibility(View.GONE);
@@ -42,25 +45,31 @@ public class CustomDialog extends Dialog {
             textTitle.setText(builder.title);
         }
 
+        int action_count = 0;
         if (TextUtils.isEmpty(builder.okText)) {
             buttonOk.setVisibility(View.GONE);
-            divider.setVisibility(View.GONE);
+            dividerAction.setVisibility(View.GONE);
             buttonCancel.setBackgroundResource(R.drawable.bg_button);
         } else {
+            action_count++;
             buttonOk.setText(builder.okText);
             buttonOk.setOnClickListener(v -> {
-                dismiss();
                 builder.onOkClickListener.onOkClick(CustomDialog.this);
             });
         }
 
         if (TextUtils.isEmpty(builder.cancelText)) {
             buttonCancel.setVisibility(View.GONE);
-            divider.setVisibility(View.GONE);
+            dividerAction.setVisibility(View.GONE);
             buttonOk.setBackgroundResource(R.drawable.bg_button);
         } else {
+            action_count++;
             buttonCancel.setText(builder.cancelText);
             buttonCancel.setOnClickListener(v -> builder.onCancelClickListener.onCancelClick(CustomDialog.this));
+        }
+        if (action_count == 0) {
+            dividerText.setVisibility(View.GONE);
+            buttonLayout.setVisibility(View.GONE);
         }
 
         textMessage.setText(Html.fromHtml(builder.message));
@@ -71,6 +80,7 @@ public class CustomDialog extends Dialog {
         if (builder.okColor != -1) {
             buttonOk.setTextColor(builder.okColor);
         }
+        setCanceledOnTouchOutside(builder.canceledOnTouchOutside);
     }
 
     public static class Builder {
@@ -83,6 +93,7 @@ public class CustomDialog extends Dialog {
         private OnCancelClickListener onCancelClickListener;
         private int okColor = -1;
         private int cancelColor = -1;
+        private boolean canceledOnTouchOutside = true;
 
         public Builder(Context context) {
             this.context = context;
@@ -117,6 +128,11 @@ public class CustomDialog extends Dialog {
 
         public Builder setCancelColor(int cancelColor) {
             this.cancelColor = cancelColor;
+            return this;
+        }
+
+        public Builder setCanceledOnTouchOutside(boolean canceledOnTouchOutside) {
+            this.canceledOnTouchOutside = canceledOnTouchOutside;
             return this;
         }
 

@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.josephvuoto.customdialog.common.OnCancelClickListener;
@@ -33,27 +34,35 @@ public class CustomViewDialog extends Dialog {
         TextView buttonOk = findViewById(R.id.submit);
         TextView buttonCancel = findViewById(R.id.cancel);
         FrameLayout placeHolder = findViewById(R.id.placeholder);
-        View divider = findViewById(R.id.divider);
+        View dividerAction = findViewById(R.id.divider_action);
+        View dividerText = findViewById(R.id.divider_text);
+        LinearLayout buttonLayout = findViewById(R.id.action_layout);
 
+        int action_count = 0;
         if (TextUtils.isEmpty(builder.okText)) {
             buttonOk.setVisibility(View.GONE);
-            divider.setVisibility(View.GONE);
+            dividerAction.setVisibility(View.GONE);
             buttonCancel.setBackgroundResource(R.drawable.bg_button);
         } else {
+            action_count++;
             buttonOk.setText(builder.okText);
             buttonOk.setOnClickListener(v -> {
-                dismiss();
                 builder.onOkClickListener.onOkClick(CustomViewDialog.this);
             });
         }
 
         if (TextUtils.isEmpty(builder.cancelText)) {
             buttonCancel.setVisibility(View.GONE);
-            divider.setVisibility(View.GONE);
+            dividerAction.setVisibility(View.GONE);
             buttonOk.setBackgroundResource(R.drawable.bg_button);
         } else {
+            action_count++;
             buttonCancel.setText(builder.cancelText);
             buttonCancel.setOnClickListener(v -> builder.onCancelClickListener.onCancelClick(CustomViewDialog.this));
+        }
+        if (action_count == 0) {
+            dividerText.setVisibility(View.GONE);
+            buttonLayout.setVisibility(View.GONE);
         }
 
         if (builder.cancelColor != -1) {

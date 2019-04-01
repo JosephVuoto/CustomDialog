@@ -12,13 +12,19 @@
 
     </FrameLayout>
     <View
+        android:alpha="0"
         android:layout_width="match_parent"
-        android:layout_height="0.6dp"
+        android:layout_height="0.1dp" />
+    <View
+        android:id="@+id/divider_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_width"
         android:background="@color/colorLightGrey"/>
 
     <LinearLayout
+        android:id="@+id/action_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/action_button_size"
         android:orientation="horizontal">
 
         <TextView
@@ -29,14 +35,13 @@
             android:background="@drawable/bg_button_left"
             android:layout_weight="1.0"
             android:gravity="center"
-            android:text="取消"
-            android:textSize="15dp"
+            android:textSize="@dimen/action_text_size"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"/>
 
         <View
-            android:id="@+id/divider"
-            android:layout_width="0.6dp"
+            android:id="@+id/divider_action"
+            android:layout_width="@dimen/divider_width"
             android:layout_height="match_parent"
             android:background="@color/colorLightGrey"/>
 
@@ -49,8 +54,7 @@
             android:gravity="center"
             android:layout_weight="1.0"
             android:textStyle="bold"
-            android:text="确定"
-            android:textSize="15dp"
+            android:textSize="@dimen/action_text_size"
             android:textColor="@color/colorAccent"/>
 
     </LinearLayout>

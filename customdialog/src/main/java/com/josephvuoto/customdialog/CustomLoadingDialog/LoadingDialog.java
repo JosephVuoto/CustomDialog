@@ -34,12 +34,14 @@ public class LoadingDialog extends Dialog {
         if (builder.textColor != -1) {
             textView.setTextColor(builder.textColor);
         }
+        setCanceledOnTouchOutside(builder.canceledOnTouchOutside);
     }
 
     public static class Builder {
         private Context context;
         private String loadingText;
         private int textColor = -1;
+        private boolean canceledOnTouchOutside = false;
 
         public Builder(Context context) {
             this.context = context;
@@ -52,6 +54,11 @@ public class LoadingDialog extends Dialog {
 
         public Builder setTextColor(int textColor) {
             this.textColor = textColor;
+            return this;
+        }
+
+        public Builder setCanceledOnTouchOutside(boolean canceledOnTouchOutside) {
+            this.canceledOnTouchOutside = canceledOnTouchOutside;
             return this;
         }
 

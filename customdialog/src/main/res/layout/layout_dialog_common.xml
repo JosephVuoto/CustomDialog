@@ -12,7 +12,7 @@
         android:gravity="center_horizontal"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="-10dp"
-        android:textSize="18dp"
+        android:textSize="@dimen/title_text_size"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"/>
 
@@ -22,21 +22,23 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:lineSpacingExtra="5dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="35dp"
-        android:textSize="16dp"
+        android:lineSpacingExtra="@dimen/line_space_extra"
+        android:layout_marginTop="@dimen/margin_alert_dialog_content"
+        android:layout_marginLeft="@dimen/margin_alert_dialog_content"
+        android:layout_marginBottom="@dimen/margin_alert_dialog_content"
+        android:layout_marginRight="@dimen/margin_alert_dialog_content"
+        android:textSize="@dimen/content_text_size"
         android:textColor="@color/colorBlack"/>
     <View
+        android:id="@+id/divider_text"
         android:layout_width="match_parent"
-        android:layout_height="0.6dp"
+        android:layout_height="@dimen/divider_width"
         android:background="@color/colorLightGrey"/>
 
     <LinearLayout
+        android:id="@+id/action_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/action_button_size"
         android:orientation="horizontal">
 
         <TextView
@@ -47,13 +49,14 @@
             android:background="@drawable/bg_button_left"
             android:layout_weight="1.0"
             android:gravity="center"
-            android:textSize="15dp"
+            android:textSize="@dimen/action_text_size"
             android:textStyle="bold"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:focusable="true" />
 
         <View
-            android:id="@+id/divider"
-            android:layout_width="0.6dp"
+            android:id="@+id/divider_action"
+            android:layout_width="@dimen/divider_width"
             android:layout_height="match_parent"
             android:background="@color/colorLightGrey"/>
 
@@ -66,8 +69,9 @@
             android:gravity="center"
             android:layout_weight="1.0"
             android:textStyle="bold"
-            android:textSize="15dp"
-            android:textColor="@color/colorAccent"/>
+            android:textSize="@dimen/action_text_size"
+            android:textColor="@color/colorAccent"
+            android:focusable="true" />
 
     </LinearLayout>
 

@@ -47,6 +47,7 @@ public class ListDialog extends Dialog {
                 builder.onSelectListener.onSelect(i, this);
             }
         });
+        setCanceledOnTouchOutside(builder.canceledOnTouchOutside);
     }
 
     public static class Builder {
@@ -56,6 +57,7 @@ public class ListDialog extends Dialog {
         private int colorText = -1;
         private int colorImageTint = -1;
         private int imageSize = -1;
+        private boolean canceledOnTouchOutside = true;
 
         public Builder(Context context) {
             this.context = context;
@@ -83,6 +85,11 @@ public class ListDialog extends Dialog {
 
         public Builder setOnSelectListener(OnSelectListener onSelectListener) {
             this.onSelectListener = onSelectListener;
+            return this;
+        }
+
+        public Builder setCanceledOnTouchOutside(boolean canceledOnTouchOutside) {
+            this.canceledOnTouchOutside = canceledOnTouchOutside;
             return this;
         }
 

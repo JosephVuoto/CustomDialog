@@ -31,11 +31,15 @@ public class MainActivity extends AppCompatActivity {
     public void withTitle(View view) {
         new CustomDialog.Builder(this)
                 .setTitle("TITLE")
-                .setMessage("MESSAGE")
-                .setOkButton("OK", dialog ->
-                        Toast.makeText(this, "CLICKED OK", Toast.LENGTH_SHORT).show())
-                .setCancelButton("CANCEL", dialog ->
-                        Toast.makeText(this, "CLICKED CANCEL", Toast.LENGTH_SHORT).show())
+                .setMessage("MESSAGE, MESSAGE, MESSAGE, MESSAGE, MESSAGE, MESSAGE, MESSAGE, MESSAGE")
+                .setOkButton("OK", dialog -> {
+                    Toast.makeText(this, "CLICKED OK", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                })
+                .setCancelButton("CANCEL", dialog -> {
+                    Toast.makeText(this, "CLICKED CANCEL", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                })
                 .build()
                 .show();
     }
@@ -43,10 +47,12 @@ public class MainActivity extends AppCompatActivity {
     public void withoutTitle(View view) {
         new CustomDialog.Builder(this)
                 .setMessage("MESSAGE")
-                .setOkButton("OK", dialog ->
-                        Toast.makeText(this, "CLICKED OK", Toast.LENGTH_SHORT).show())
-                .setCancelButton("CANCEL", dialog ->
-                        Toast.makeText(this, "CLICKED CANCEL", Toast.LENGTH_SHORT).show())
+                .setOkButton("OK", dialog -> {
+                    Toast.makeText(this, "CLICKED OK", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                })
+//                .setCancelButton("CANCEL", dialog ->
+//                        Toast.makeText(this, "CLICKED CANCEL", Toast.LENGTH_SHORT).show())
                 .build()
                 .show();
     }
@@ -83,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         new LoadingDialog.Builder(this)
                 .setLoadingText("new loading...")
                 .setTextColor(Color.parseColor("#DDDDDD"))
+                .setCanceledOnTouchOutside(false)
                 .build()
                 .show();
     }
