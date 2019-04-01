@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.josephvuoto.customdialog.OnCancelClickListener;
-import com.josephvuoto.customdialog.OnOkClickListener;
+import com.josephvuoto.customdialog.common.OnCancelClickListener;
+import com.josephvuoto.customdialog.common.OnOkClickListener;
 import com.xieyangzhe.customdialog.R;
 
 import java.util.Objects;

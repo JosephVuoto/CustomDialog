@@ -1,4 +1,4 @@
-package com.josephvuoto.customdialog;
+package com.josephvuoto.customdialog.CustomAlertDialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.josephvuoto.customdialog.common.OnCancelClickListener;
+import com.josephvuoto.customdialog.common.OnOkClickListener;
 import com.xieyangzhe.customdialog.R;
 
 import java.util.Objects;

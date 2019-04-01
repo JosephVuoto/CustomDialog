@@ -1,17 +1,20 @@
 package com.josephvuoto.customdialogdemo;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Color;
-import android.media.session.PlaybackState;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.josephvuoto.customdialog.CustomDialog;
+import com.josephvuoto.customdialog.CustomAlertDialog.CustomDialog;
 import com.josephvuoto.customdialog.CustomListDialog.ListDialog;
 import com.josephvuoto.customdialog.CustomListDialog.ListItemModel;
-import com.josephvuoto.customdialog.CustomListDialog.OnSelectListener;
+import com.josephvuoto.customdialog.CustomLoadingDialog.LoadingDialog;
+import com.josephvuoto.customdialog.CustomUIDialog.CustomViewDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 .setOkButton("OK", dialog ->
                         Toast.makeText(this, "CLICKED OK", Toast.LENGTH_SHORT).show())
                 .setCancelButton("CANCEL", dialog ->
-                        Toast.makeText(this, "CLICKED OK", Toast.LENGTH_SHORT).show())
+                        Toast.makeText(this, "CLICKED CANCEL", Toast.LENGTH_SHORT).show())
                 .build()
                 .show();
     }
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 .setOkButton("OK", dialog ->
                         Toast.makeText(this, "CLICKED OK", Toast.LENGTH_SHORT).show())
                 .setCancelButton("CANCEL", dialog ->
-                        Toast.makeText(this, "CLICKED OK", Toast.LENGTH_SHORT).show())
+                        Toast.makeText(this, "CLICKED CANCEL", Toast.LENGTH_SHORT).show())
                 .build()
                 .show();
     }
@@ -61,6 +64,25 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "CLICKED " + which, Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 })
+                .build()
+                .show();
+    }
+
+    public void custom(View view) {
+        @SuppressLint("InflateParams")
+        LinearLayout customView = (LinearLayout) LayoutInflater.from(this)
+                .inflate(R.layout.layout_custom, null, false);
+        new CustomViewDialog.Builder(this)
+                .setOkButton("Done", Dialog::dismiss)
+                .setCustomView(customView)
+                .build()
+                .show();
+    }
+
+    public void loading(View view) {
+        new LoadingDialog.Builder(this)
+                .setLoadingText("new loading...")
+                .setTextColor(Color.parseColor("#DDDDDD"))
                 .build()
                 .show();
     }

@@ -1,4 +1,4 @@
-package com.josephvuoto.customdialog;
+package com.josephvuoto.customdialog.common;
 
 import android.app.Dialog;
 
