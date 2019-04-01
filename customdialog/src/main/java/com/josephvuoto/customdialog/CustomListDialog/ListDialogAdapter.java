@@ -1,5 +1,6 @@
 package com.josephvuoto.customdialog.CustomListDialog;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -18,30 +19,30 @@ import java.util.List;
 public class ListDialogAdapter extends ArrayAdapter {
 
     private int resourceId;
-    private int colorText;
+    private ListDialog.Builder builder;
 
-    public ListDialogAdapter(@NonNull Context context, int resource) {
-        super(context, resource);
-        resourceId = resource;
-    }
-
-    public ListDialogAdapter(@NonNull Context context, int resource, @NonNull List<ListItemModel> objects, int colorText) {
-        super(context, resource, objects);
-        this.colorText = colorText;
+    ListDialogAdapter(@NonNull Context context, int resource, ListDialog.Builder builder) {
+        super(context, resource, builder.getDatas());
         this.resourceId = resource;
+        this.builder = builder;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ListItemModel model = (ListItemModel) getItem(position);
-        View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
+        @SuppressLint("ViewHolder") View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
         TextView textItem = view.findViewById(R.id.item);
-        textItem.setText("" + model.getItemString());
-        if (colorText != -1) {
-            textItem.setTextColor(colorText);
+        ImageView imageView = view.findViewById(R.id.item_img);
+        assert model != null;
+        textItem.setText(model.getItemString());
+        if (builder.getColorText() != -1) {
+            textItem.setTextColor(builder.getColorText());
         }
-        ((ImageView) view.findViewById(R.id.item_img)).setImageResource(model.getImgResourceId());
+        if (builder.getColorImageTint() != -1) {
+            imageView.setColorFilter(builder.getColorImageTint());
+        }
+        imageView.setImageResource(model.getImgResourceId());
         return view;
     }
 }

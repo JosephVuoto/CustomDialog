@@ -36,7 +36,7 @@ public class ListDialog extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_dialog_list);
-        ListDialogAdapter adapter = new ListDialogAdapter(getContext(), R.layout.item_dialog_list, builder.datas, builder.colorText);
+        ListDialogAdapter adapter = new ListDialogAdapter(getContext(), R.layout.item_dialog_list, builder);
         ListView list = findViewById(R.id.dialog_listview);
         list.setAdapter(adapter);
         list.setFocusable(true);
@@ -54,9 +54,16 @@ public class ListDialog extends Dialog {
         private List<ListItemModel> datas;
         private OnSelectListener onSelectListener;
         private int colorText = -1;
+        private int colorImageTint = -1;
+        private int imageSize = -1;
 
         public Builder(Context context) {
             this.context = context;
+        }
+
+        public Builder setColorImageTint(int colorImageTint) {
+            this.colorImageTint = colorImageTint;
+            return this;
         }
 
         public Builder setColorText(int colorText) {
@@ -69,6 +76,11 @@ public class ListDialog extends Dialog {
             return this;
         }
 
+        public Builder setImageSize(int imageSize) {
+            this.imageSize = imageSize;
+            return this;
+        }
+
         public Builder setOnSelectListener(OnSelectListener onSelectListener) {
             this.onSelectListener = onSelectListener;
             return this;
@@ -76,6 +88,22 @@ public class ListDialog extends Dialog {
 
         public ListDialog build() {
             return new ListDialog(context, this);
+        }
+
+        public List<ListItemModel> getDatas() {
+            return datas;
+        }
+
+        public int getColorText() {
+            return colorText;
+        }
+
+        public int getColorImageTint() {
+            return colorImageTint;
+        }
+
+        public int getImageSize() {
+            return imageSize;
         }
     }
 }

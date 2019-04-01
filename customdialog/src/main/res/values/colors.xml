@@ -12,22 +12,9 @@
     <color name="colorComment">#666666</color>
 
     <color name="colorGrey">#CCCCCC</color>
-    <color name="colorMediumGray">#E1E1E1</color>
+    <color name="colorMediumGrey">#E1E1E1</color>
     <color name="colorLightGrey">#EEEEEE</color>
     <color name="colorSlightGrey">#F6F6F6</color>
-
-    <color name="colorAuthFail">#064F7F</color>
-    <color name="colorFollow">#007ED3</color>
-    <color name="colroAuthing">#0790F0</color>
-    <color name="colorNotAuth">#B9B9B9</color>
-    <color name="colorAuthSuccess">#007ED3</color>
-
-    <color name="colorRecHotExpertName">#004E83</color>
-    <color name="colorDivder">#f4f6f5</color>
-    <color name="colorUnderLine">#E5E5E5</color>
-    <color name="colorCompleteUnderLine">#D1D1D1</color>
-    <color name="colorHint">#999999</color>
-    <color name="colorTime">#AAAAAA</color>
 
     <color name="colorGold">#febf35</color>
     <color name="colorSilver">#b9c0c3</color>
