@@ -1,4 +1,4 @@
-package com.josephvuoto.customdialog.CustomListDialog;
+package com.josephvuoto.customdialog.list;
 
 public class ListItemModel {
     private int imgResourceId;
@@ -11,6 +11,7 @@ public class ListItemModel {
 
     public ListItemModel(String itemString) {
         this.itemString = itemString;
+        this.imgResourceId = -1;
     }
 
     public int getImgResourceId() {

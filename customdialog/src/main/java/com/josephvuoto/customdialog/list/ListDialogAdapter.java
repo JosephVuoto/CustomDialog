@@ -1,8 +1,7 @@
-package com.josephvuoto.customdialog.CustomListDialog;
+package com.josephvuoto.customdialog.list;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -13,8 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xieyangzhe.customdialog.R;
-
-import java.util.List;
 
 public class ListDialogAdapter extends ArrayAdapter {
 
@@ -42,7 +39,18 @@ public class ListDialogAdapter extends ArrayAdapter {
         if (builder.getColorImageTint() != -1) {
             imageView.setColorFilter(builder.getColorImageTint());
         }
-        imageView.setImageResource(model.getImgResourceId());
+        if (model.getImgResourceId() == -1) {
+            imageView.setVisibility(View.GONE);
+        } else {
+            imageView.setImageResource(model.getImgResourceId());
+        }
+        if (position == 0) {
+            view.setBackgroundResource(R.drawable.bg_button_top);
+        } else if (position == getCount() - 1) {
+            view.setBackgroundResource(R.drawable.bg_button_bottom);
+        } else {
+            view.setBackgroundResource(R.drawable.bg_ripple);
+        }
         return view;
     }
 }

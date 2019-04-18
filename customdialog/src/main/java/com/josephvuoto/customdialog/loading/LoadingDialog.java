@@ -1,4 +1,4 @@
-package com.josephvuoto.customdialog.CustomLoadingDialog;
+package com.josephvuoto.customdialog.loading;
 
 import android.app.Dialog;
 import android.content.Context;

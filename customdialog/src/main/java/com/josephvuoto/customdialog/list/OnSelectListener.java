@@ -1,4 +1,4 @@
-package com.josephvuoto.customdialog.CustomListDialog;
+package com.josephvuoto.customdialog.list;
 import android.app.Dialog;
 
 public interface OnSelectListener {

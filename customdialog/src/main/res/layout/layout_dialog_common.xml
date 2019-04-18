@@ -24,9 +24,9 @@
         android:layout_gravity="center_horizontal"
         android:lineSpacingExtra="@dimen/line_space_extra"
         android:layout_marginTop="@dimen/margin_alert_dialog_content"
-        android:layout_marginLeft="@dimen/margin_alert_dialog_content"
+        android:layout_marginLeft="@dimen/margin_alert_dialog_content_side"
         android:layout_marginBottom="@dimen/margin_alert_dialog_content"
-        android:layout_marginRight="@dimen/margin_alert_dialog_content"
+        android:layout_marginRight="@dimen/margin_alert_dialog_content_side"
         android:textSize="@dimen/content_text_size"
         android:textColor="@color/colorBlack"/>
     <View

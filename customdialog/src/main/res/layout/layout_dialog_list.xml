@@ -3,11 +3,13 @@
     android:layout_width="@dimen/list_dialog_width"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:background="@drawable/list_dialog_bg"
+    android:clickable="true"
+    android:background="@drawable/bg_round_white"
     android:orientation="vertical">
     <ListView
         android:id="@+id/dialog_listview"
         android:layout_width="match_parent"
+        android:listSelector="@android:color/transparent"
         android:layout_weight="1"
         android:layout_height="0dp">
 

@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.josephvuoto.customdialog.CustomAlertDialog.CustomDialog;
-import com.josephvuoto.customdialog.CustomListDialog.ListDialog;
-import com.josephvuoto.customdialog.CustomListDialog.ListItemModel;
-import com.josephvuoto.customdialog.CustomLoadingDialog.LoadingDialog;
-import com.josephvuoto.customdialog.CustomUIDialog.CustomViewDialog;
+import com.josephvuoto.customdialog.alert.CustomDialog;
+import com.josephvuoto.customdialog.list.ListDialog;
+import com.josephvuoto.customdialog.list.ListItemModel;
+import com.josephvuoto.customdialog.loading.LoadingDialog;
+import com.josephvuoto.customdialog.custom.CustomViewDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
         listItemModels.add(new ListItemModel(R.drawable.ic_alarms, "Set Alarm"));
         listItemModels.add(new ListItemModel(R.drawable.ic_insert_emoticon, "Insert Emoticon"));
         listItemModels.add(new ListItemModel(R.drawable.ic_lock_open, "Open Lock"));
+//        listItemModels.add(new ListItemModel("Set Alarm"));
+//        listItemModels.add(new ListItemModel("Insert Emoticon"));
+//        listItemModels.add(new ListItemModel("Open Lock"));
         new ListDialog.Builder(this)
                 .setDatas(listItemModels)
                 .setColorText(getResources().getColor(R.color.colorAccent))
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loading(View view) {
         new LoadingDialog.Builder(this)
-                .setLoadingText("new loading...")
+                .setLoadingText("now loading...")
                 .setTextColor(Color.parseColor("#DDDDDD"))
                 .setCanceledOnTouchOutside(false)
                 .build()

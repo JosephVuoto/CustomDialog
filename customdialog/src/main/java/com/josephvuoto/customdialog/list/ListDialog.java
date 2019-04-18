@@ -1,4 +1,4 @@
-package com.josephvuoto.customdialog.CustomListDialog;
+package com.josephvuoto.customdialog.list;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -19,7 +19,7 @@ public class ListDialog extends Dialog {
     private Builder builder;
 
     public ListDialog(@NonNull Context context, Builder builder) {
-        super(context);
+        super(context, R.style.Dialog);
         this.builder = builder;
         Objects.requireNonNull(getWindow()).setDimAmount(0.4f);
     }

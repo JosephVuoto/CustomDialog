@@ -6,7 +6,7 @@
 
     <ImageView
         android:id="@+id/item_img"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="35dp"
         android:layout_centerVertical="true"
         android:scaleType="centerInside"
         android:layout_width="@dimen/list_image_size"
@@ -15,12 +15,12 @@
     <TextView
         android:id="@+id/item"
         android:layout_toEndOf="@id/item_img"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="25dp"
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/list_text_size"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
         android:gravity="center"
-        android:layout_height="50dp" />
+        android:layout_height="60dp" />
 
 </RelativeLayout>
